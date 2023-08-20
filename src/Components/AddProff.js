@@ -119,7 +119,7 @@ function AddProf() {
                                             researchArea: researchArea
                                         }).then((response) => {
                                             if(response.data.message === "Data added"){
-                                                window.open("http://localhost:3000","_self");
+                                                window.open("https://mclient.vercel.app","_self");
                                             }
                                         }) .catch((er) => {
                                             alert(er.message);

@@ -14,8 +14,8 @@ function NavComp() {
         <NavItem>
             <NavLink>
                 <Button onClick={() => {
-                  axios.get('http://localhost:3001/token').then((response) => {
-                    window.open(response.data.url);
+                  axios.get('https://mserver-xi.vercel.app/professor/token').then((response) => {
+                    window.open(response.data.url, "_self");
                   }).catch((er) => {
                     console.log(er.message);
                   })
@@ -23,6 +23,13 @@ function NavComp() {
                     Check Mails
                 </Button>
             </NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink>
+            <Button href="/">
+              Home
+            </Button>
+          </NavLink>
         </NavItem>
     </Nav>
   )
