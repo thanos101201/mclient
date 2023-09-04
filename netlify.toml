@@ -1,0 +1,6 @@
+[build]
+command = "npm run build" # Set this to the script that builds your application (if needed)
+publish = "public" # Set this to the directory containing your built assets
+
+[dev]
+command = "npm start"
