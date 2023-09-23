@@ -24,7 +24,7 @@ function Check() {
                 code: code,
                 client_id: "203748571834-tdvt7eqamd9j051jbdtddvumhelh541u.apps.googleusercontent.com",
                 client_secret: "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",
-                redirect_uri: "https://mclient.vercel.app/check",
+                redirect_uri: `${process.env.REACT_APP_CLIENT_URL}/check`,
                 grant_type: 'authorization_code'
                 })
             tokenRequest.then((resp1) => {
@@ -32,7 +32,7 @@ function Check() {
                     const acctk = resp1.data.access_token;
                     console.log(acctk);
                     let g = [];
-                    axios.get('https://mserver-xi.vercel.app/professor/tracker', {
+                    axios.get(`${process.env.REACT_APP_SERVER_URL}/professor/tracker`, {
                         headers: {
                             acctk: acctk
                         }

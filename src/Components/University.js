@@ -13,7 +13,7 @@ function University() {
     const { name } =  useParams();
     useEffect(() => {
         console.log(name);
-        axios.get('https://mserver-xi.vercel.app/professor').then((response) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/professor`).then((response) => {
             if(response.data.message === "Professor list is here"){
                 if(response.data.data.length > 0){
                     let dt = response.data.data.filter((e) => {

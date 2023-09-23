@@ -9,7 +9,7 @@ function Home() {
     const { profData, setProfData } = useContext(AppContext);
     const [ open, setOpen ] = useState('');
     useEffect(() => {
-        axios.get('https://mserver-xi.vercel.app/professor').then((response) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/professor`).then((response) => {
             if(response.data.message === "Professor list is here"){
                 setProfData(response.data.data);
             }

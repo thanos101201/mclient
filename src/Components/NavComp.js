@@ -14,7 +14,7 @@ function NavComp() {
         <NavItem>
             <NavLink>
                 <Button onClick={() => {
-                  axios.get('https://mserver-xi.vercel.app/professor/token').then((response) => {
+                  axios.get(`${process.env.REACT_APP_SERVER_URL}/professor/token`).then((response) => {
                     window.open(response.data.url, "_self");
                   }).catch((er) => {
                     console.log(er.message);

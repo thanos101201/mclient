@@ -11,7 +11,7 @@ function Professor() {
     const [ paper, stePaper] = useState([]);
     const { name } = useParams();
     useEffect(() => {
-        axios.get('https://mserver-xi.vercel.app/professor').then((response) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/professor`).then((response) => {
             if(response.data.data.length > 0){
                 let dt = response.data.data.filter((e) => {
                     if(e.prof_name === name){
@@ -23,7 +23,7 @@ function Professor() {
             }
             else{
                 alert("No data is here");
-                window.open("http://localhost:3000", "_self");
+                window.open(`${process.env.REACT_APP_CLIENT_URL}`, "_self");
             }
         }).catch((er) => {
             alert(er.message);
@@ -72,7 +72,7 @@ function Professor() {
                     </CardBody>
                     <CardFooter>
                         <Button href={`/mail/${profData[0].prof_name}`} onClick={() => {
-                            axios.get('https://mserver-xi.vercel.app/otp').then((response) => {
+                            axios.get('process.env.REACT_APP_SERVER_URL/otp').then((response) => {
                                 if(response.data.message === "Otp send"){
                                     console.log("Namaste here is it");
                                 }

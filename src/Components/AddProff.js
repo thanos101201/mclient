@@ -111,7 +111,7 @@ function AddProf() {
                             <div className='row'>
                                 <div className='col-10'>
                                     <Button onClick={() => {
-                                        axios.post('https://mserver-xi.vercel.app/professor', {
+                                        axios.post(`${process.env.REACT_APP_SERVER_URL}/professor`, {
                                             prof_name: prof_name,
                                             email: email,
                                             university_name: university_name,
@@ -119,7 +119,7 @@ function AddProf() {
                                             researchArea: researchArea
                                         }).then((response) => {
                                             if(response.data.message === "Data added"){
-                                                window.open("https://mclient.vercel.app","_self");
+                                                window.open(`${process.env.REACT_APP_CLIENT_URL}`,"_self");
                                             }
                                         }) .catch((er) => {
                                             alert(er.message);

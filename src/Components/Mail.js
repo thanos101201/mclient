@@ -12,7 +12,7 @@ function Mail() {
     const [ otp, setOtp ] = useState("");
     const { name } = useParams();
     useEffect(() => {
-        axios.get('https://mserver-xi.vercel.app/professor').then((response) => {
+        axios.get(`${process.env.REACT_APP_SERVER_URL}/professor`).then((response) => {
             if(response.data.data.length > 0){
                 let dt = response.data.data.filter((e) => {
                     if(e.prof_name === name){
@@ -25,7 +25,7 @@ function Mail() {
         })
     },[]);
     const sendMail = () => {
-        axios.post('https://mserver-xi.vercel.app/professor/mail', {
+        axios.post(`${process.env.REACT_APP_SERVER_URL}/professor/mail`, {
             email: "pratikthakur2019@gmail.com",// profData[0].email,
             mailBody: mailBody,
             subject: subject,
